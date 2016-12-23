@@ -19,7 +19,7 @@
     return YES;
 }
 
-# 一对一
+# 二、一对一
 
 // Model
 
@@ -93,7 +93,7 @@ RLM_ARRAY_TYPE(PersonModel);
 }
 
 
-# 一对多
+# 三、一对多
 
 // Model  userId为主建
 
