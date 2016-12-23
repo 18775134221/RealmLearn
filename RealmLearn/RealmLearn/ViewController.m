@@ -100,19 +100,42 @@
 // 创建表
 - (void) createTable {
 
-    UserMD *userMD = [UserMD new];
-    userMD.userId = @"200";
+    UserMD *userMD;
+    NSString *userId = @"200";
+    // 查询当前是否有这个表
+    if ([UserMD objectInRealm:_realm forPrimaryKey:userId]) {
+        userMD = [UserMD objectInRealm:_realm forPrimaryKey:userId];
+        
+    }else {
+        userMD = [UserMD new];
+        userMD.userId = userId;
+    }
     
-    UserMessageMD *userMessageMD = [UserMessageMD new];
-    userMessageMD.title = @"我是主标题";
-    userMessageMD.subTitle = @"我是副标题";
+    UserMessageMD *userMessageMD;
+    NSString *messageId = @"20000";
+    __block BOOL isHaveMessage = NO;
+    if([UserMessageMD objectInRealm:_realm forPrimaryKey:messageId]) {
+        // 如果有则是更新
+        userMessageMD = [UserMessageMD objectInRealm:_realm forPrimaryKey:messageId];
+        isHaveMessage = YES;
+        
+    }else {
+        // 插入新的数据
+        userMessageMD = [UserMessageMD new];
+        userMessageMD.title = @"我是主标题";
+        userMessageMD.subTitle = @"我是副标题";
+        userMessageMD.messageId = messageId;
+    }
     
-    // 先查询后追加
-    userMD.userMessages = [UserMD objectInRealm:_realm forPrimaryKey:userMD.userId].userMessages;
-
-    [userMD.userMessages addObject:userMessageMD];
     
     [_realm transactionWithBlock:^{
+        if (! isHaveMessage) { // 追加
+            [userMD.userMessages addObject:userMessageMD];
+            isHaveMessage = NO;
+        }else { // 更新操作
+            userMessageMD.title = @"我是测试标题";
+            userMessageMD.subTitle = @"我是测试子标题";
+        }
         [_realm addOrUpdateObject:userMD];
     }];
 }
