@@ -57,6 +57,7 @@ RLM_ARRAY_TYPE(PersonModel);
 // 删
 
 -(void) deletedData {
+
     PersonModel *person = _allPersons[0];
     [_realm transactionWithBlock:^{
     
@@ -68,6 +69,7 @@ RLM_ARRAY_TYPE(PersonModel);
 // 改
 
 -(void) updateData {
+
     PersonModel *person = _allPersons[0];
     [_realm transactionWithBlock:^{
     
@@ -84,6 +86,7 @@ RLM_ARRAY_TYPE(PersonModel);
     
 //    NSString *filter = [NSString stringWithFormat:@"age > %d", 100];
 //    _allPersons = [PersonModel objectsInRealm:_realm where:filter];
+
     _allPersons = [PersonModel allObjects];
     NSLog(@"%@",_allPersons);
     
