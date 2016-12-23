@@ -23,8 +23,6 @@
 
 // Model
 
-#import <Realm/Realm.h>
-
 @interface PersonModel : RLMObject
     
 @property NSString *name;
@@ -96,8 +94,6 @@ RLM_ARRAY_TYPE(PersonModel);
 # 三、一对多
 
 // Model  userId为主建
-
-#import <Realm/Realm.h>
 
 @interface UserMessageMD : RLMObject
 
