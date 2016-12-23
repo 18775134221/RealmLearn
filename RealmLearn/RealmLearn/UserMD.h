@@ -1,0 +1,31 @@
+//
+//  UserMD.h
+//  RealmLearn
+//
+//  Created by MAC on 2016/12/23.
+//  Copyright © 2016年 MAC. All rights reserved.
+//
+
+#import <Realm/Realm.h>
+
+@interface UserMessageMD : RLMObject
+
+@property NSString *title;
+@property NSString *subTitle;
+
+@end
+RLM_ARRAY_TYPE(UserMessageMD);
+
+
+@interface UserMD : RLMObject
+
+@property NSString *userId;
+@property RLMArray <UserMessageMD>* userMessages;
+
+@end
+RLM_ARRAY_TYPE(UserMD);
+
+
+
+
+
