@@ -1,7 +1,9 @@
 # 一、初始化Realm
 
 #pragma mark - 创建数据库（不创建使用系统默认）
-- (BOOL) initRealm {
+
+-(BOOL) initRealm {
+
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
     config.fileURL = [[[config.fileURL URLByDeletingLastPathComponent]
                        URLByAppendingPathComponent:@"crud"]
@@ -35,7 +37,8 @@ RLM_ARRAY_TYPE(PersonModel);
 
 // 增
 
-- (void) insertData {
+-(void) insertData {
+
     PersonModel *model = [PersonModel new];
     model.name = @"hjq";
     model.age = 10000;
@@ -53,7 +56,7 @@ RLM_ARRAY_TYPE(PersonModel);
 
 // 删
 
-- (void) deletedData {
+-(void) deletedData {
     PersonModel *person = _allPersons[0];
     [_realm transactionWithBlock:^{
     
@@ -64,7 +67,7 @@ RLM_ARRAY_TYPE(PersonModel);
 
 // 改
 
-- (void) updateData {
+-(void) updateData {
     PersonModel *person = _allPersons[0];
     [_realm transactionWithBlock:^{
     
@@ -75,7 +78,7 @@ RLM_ARRAY_TYPE(PersonModel);
 
 // 查
 
-- (void) seletedData {
+-(void) seletedData {
 
     // 条件查询
     
@@ -113,7 +116,7 @@ RLM_ARRAY_TYPE(UserMD);
 
 // 创建表
 
-- (void) createTable {
+-(void) createTable {
 
     UserMD *userMD = [UserMD new];
     userMD.userId = @"200";
@@ -135,7 +138,7 @@ RLM_ARRAY_TYPE(UserMD);
 
 // 查询
 
-- (void) queryDatas {
+-(void) queryDatas {
 
     NSLog(@"%@",[UserMD allObjectsInRealm:_realm]);
 }
