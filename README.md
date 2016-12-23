@@ -1,6 +1,6 @@
 # 一、初始化Realm
 
-#pragma mark - 创建数据库（不创建使用系统默认）
+- 创建数据库（不创建使用系统默认）
 
 -(BOOL) initRealm {
 
