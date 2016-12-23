@@ -35,7 +35,7 @@
 
 RLM_ARRAY_TYPE(PersonModel);
 
-// 增
+- 增
 
 -(void) insertData {
 
@@ -54,7 +54,7 @@ RLM_ARRAY_TYPE(PersonModel);
     
 }
 
-// 删
+- 删
 
 -(void) deletedData {
 
@@ -66,7 +66,7 @@ RLM_ARRAY_TYPE(PersonModel);
     
 }
 
-// 改
+- 改
 
 -(void) updateData {
 
@@ -78,7 +78,7 @@ RLM_ARRAY_TYPE(PersonModel);
     
 }
 
-// 查
+- 查
 
 -(void) seletedData {
 
@@ -117,7 +117,7 @@ RLM_ARRAY_TYPE(UserMessageMD);
 RLM_ARRAY_TYPE(UserMD);
 
 
-// 创建表
+- 创建表
 
 -(void) createTable {
 
@@ -139,7 +139,7 @@ RLM_ARRAY_TYPE(UserMD);
     }];
 }
 
-// 查询
+- 查询
 
 -(void) queryDatas {
 
