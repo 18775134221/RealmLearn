@@ -116,7 +116,7 @@ RLM_ARRAY_TYPE(UserMD);
 
 - 创建表
 
-- (void) createTable {
+-(void) createTable {
 
     UserMD *userMD;
     NSString *userId = @"200";
