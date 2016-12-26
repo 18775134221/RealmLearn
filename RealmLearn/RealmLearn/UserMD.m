@@ -18,7 +18,7 @@
 
 @implementation UserMessageMD
 
-+ (NSString *)primaryKey {
-    return @"messageId";
-}
+//+ (NSString *)primaryKey {
+//    return @"messageId";
+//}
 @end
