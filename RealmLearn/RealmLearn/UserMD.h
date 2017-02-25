@@ -12,7 +12,7 @@
 
 @property NSString *title;
 @property NSString *messageId; // 主键
-@property NSString *subTitle;
+@property NSNumber<RLMInt>* subTitle;
 
 @end
 RLM_ARRAY_TYPE(UserMessageMD);

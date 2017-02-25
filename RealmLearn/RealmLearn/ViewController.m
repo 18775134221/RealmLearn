@@ -35,6 +35,17 @@
 #pragma mark - 创建数据库（不创建使用系统默认）
 - (BOOL) initRealm {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
+    
+    config.readOnly = NO;
+    int currentVersion = 10.0;
+    config.schemaVersion = currentVersion;
+    config.migrationBlock = ^(RLMMigration *migration , uint64_t oldSchemaVersion) {
+        // 这里是设置数据迁移的block
+        if (oldSchemaVersion < currentVersion) {
+            
+        }
+    };
+    
     config.fileURL = [[[config.fileURL URLByDeletingLastPathComponent]
                        URLByAppendingPathComponent:@"crud"]
                       URLByAppendingPathExtension:@"realm"];
@@ -123,7 +134,7 @@
                 // 插入新的数据
                 userMessageMD = [UserMessageMD new];
                 userMessageMD.title = @"我是主标题";
-                userMessageMD.subTitle = @"我是副标题";
+                userMessageMD.subTitle = @123;
                 userMessageMD.messageId = messageId;
                 [userMD.userMessages addObject:userMessageMD];
             }
